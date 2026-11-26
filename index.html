@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liftrack</title>
+<meta name="description" content="Liftrack is a workout tracker for Android that logs your training muscle by muscle: 50 muscles, a body map of what you trained, and rep-max records.">
+<meta name="theme-color" content="#0F1115">
+<meta property="og:title" content="Liftrack">
+<meta property="og:description" content="A workout tracker for Android, muscle by muscle.">
+<meta property="og:image" content="https://liftrack.dev/og.png">
+<meta property="og:url" content="https://liftrack.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+  /* Layout: one centred column, the mark as the hero; the app's own tokens, dark first. */
+  :root {
+    --bg: #0F1115; --surface: #171A20; --line: #2A2F38;
+    --fg: #E8EAED; --muted: #9AA0AA; --accent: #4C8DFF; --plus: #3DD68C; --bar: #9AA0AA;
+    --display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #F7F8FA; --surface: #FFFFFF; --line: #DDE1E7; --fg: #12151B; --muted: #5B6270;
+            --accent: #1A5FD0; --plus: #177A4F; --bar: #7A8290; color-scheme: light; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.55 var(--text);
+    padding: max(16px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+             max(16px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  }
+  main { max-width: 640px; margin: 0 auto; padding-block: clamp(48px, 12vh, 120px) 48px;
+         display: flex; flex-direction: column; gap: 56px; }
+  .hero { display: flex; flex-direction: column; gap: 20px; }
+  .mark { width: 88px; height: 88px; border-radius: 22px; background: var(--surface);
+          border: 1px solid var(--line); display: grid; place-items: center; }
+  .mark svg { width: 64px; height: 64px; }
+  h1 { margin: 0; font: 600 clamp(40px, 9vw, 56px)/1.05 var(--display); letter-spacing: -0.02em; text-wrap: balance; }
+  .lede { margin: 0; font-size: clamp(19px, 4.4vw, 22px); color: var(--fg); max-width: 32ch; text-wrap: balance; }
+  .status { display: inline-flex; align-items: center; gap: 8px; width: fit-content; margin: 0;
+            font: 500 14px/1 var(--text); color: var(--muted); padding: 8px 12px;
+            border: 1px solid var(--line); border-radius: 999px; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--plus); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  li b { font: 600 15px/1.5 var(--display); letter-spacing: 0.01em; }
+  li span { color: var(--muted); }
+  @media (max-width: 480px) { li { grid-template-columns: 1fr; gap: 4px; } }
+  footer { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 15px; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="18 18 72 72" role="presentation">
+        <rect x="22" y="51.5" width="64" height="5" rx="2.5" fill="var(--bar)"/>
+        <rect x="31" y="44" width="8" height="20" rx="2.5" fill="var(--plus)"/>
+        <rect x="42" y="37" width="9" height="34" rx="2.5" fill="var(--accent)"/>
+        <rect x="54" y="30" width="10" height="48" rx="2.5" fill="var(--accent)"/>
+        <rect x="67" y="47" width="5" height="14" rx="1.5" fill="var(--bar)"/>
+      </svg>
+    </div>
+    <h1>Liftrack</h1>
+    <p class="lede">A workout tracker for Android that logs your training muscle by muscle.</p>
+    <p class="status">In development</p>
+  </section>
+
+  <ul aria-label="What it does">
+    <li><b>50 muscles</b><span>Upper and lower lats, soleus and gastrocnemius, three bands of chest. Every set counts against the muscles it trains.</span></li>
+    <li><b>Body map</b><span>See which muscles you trained this week, and which you have not touched in a month.</span></li>
+    <li><b>Records</b><span>Your best weight at every rep count, with the set that earned it.</span></li>
+    <li><b>Last session</b><span>Every set shows what you did on that set last time, so you know the number to beat.</span></li>
+  </ul>
+
+  <footer>
+    <a href="https://www.instagram.com/liftrack.dev/">Instagram</a>
+    <span>© 2026 Liftrack</span>
+  </footer>
+</main>
+</body>
+</html>
